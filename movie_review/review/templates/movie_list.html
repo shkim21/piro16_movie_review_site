@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {%for review in reviews %}
+        <a href="{% url '' review.pk%}"><h2>{{ review.title }}</h2></a>
+        <p>{{ review.genre }}</p>
+        <p>{{ review.rating }}</p>
+    {% endfor %}
+{% endblock %}
