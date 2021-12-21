@@ -1,0 +1,42 @@
+.detail {
+  margin: 20px;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-title {
+  margin: 10px 20px;
+}
+
+.detail-ud {
+  margin-right: 10px;
+  color: var(--d-gray);
+}
+.detail-info {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  background-color: var(--l-gray);
+}
+
+.detail-review1 {
+  margin-top: 10px;
+}
+.detail-item {
+  font-weight: bold;
+  color: var(--d-gray);
+}
+
+#review {
+  background-color: var(--lm-gray);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.movie-poster {
+  margin: 10px 20px 10px 20px;
+}

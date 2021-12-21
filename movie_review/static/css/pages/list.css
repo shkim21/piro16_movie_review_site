@@ -1,0 +1,22 @@
+.list-reviews {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.list-review {
+  margin: 0 30px;
+  background-color: var(--lm-gray);
+  margin: 20px;
+  padding: 10px;
+  width: 100px;
+  height: 200px;
+}
+
+.list-item {
+  font-weight: bold;
+}
+
+.list-content {
+  color: var(--m-gray);
+}

@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python,django,visualstudiocode,venv
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,django,visualstudiocode,venv
-
+.DS_Store
 ### Django ###
 *.log
 *.pot

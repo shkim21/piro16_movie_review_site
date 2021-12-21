@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="detail">
+    <div class="detail-top">
+        <h1 class="detail-title">{{ review.title }}</h1>
+        <div>
+            <a href="{% url 'review:update' review.id %}"><span class="detail-ud">수정</span></a>
+            <a href="{% url 'review:delete' review.id %}"><span class="detail-ud">삭제</span></a>
+        </div>
+    </div>
+    <div class="detail-info">
+        <img class="movie-poster" src="https://picsum.photos/seed/picsum1/160/220">
+        <div class="detail-review1">
+            <p><span class="detail-item">개봉일</span> <span class="detail-content">  {{ review.release_date }}</span></p>
+            <p><span class="detail-item">감독</span> <span class="detail-content">  {{ review.director }}</span></p>
+            <p><span class="detail-item">주연</span> <span class="detail-content">  {{ review.actor }}</span></p>
+            <p><span class="detail-item">장르</span> <span class="detail-content">  {{ review.genre }}</span></p>
+            <p><span class="detail-item">별점</span> <span class="detail-content">  {{ review.rating }}</span></p>
+            <p><span class="detail-item">러닝타임</span> <span class="detail-content">  {{ review.running_time }}</span></p>
+        </div>
+    </div>
+    <div class="detail-review2">
+        <p id="review">{{ review.content }}</p>
+    </div>
+</div>
+{% endblock %}

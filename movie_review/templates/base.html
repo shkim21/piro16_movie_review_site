@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?ver=1"> 
     <title>My Movie reviews</title>
 </head>
 <body>
     <header>
-        <h1><a href="/review">My Movie reviews</a></h1>
-        <a href="{% url 'review:create' %}"><span class="">Post a new review</span></a>
+        <h1 class="header-title"><a href="/review/">my <span class="movie">Movie</span> reviews</a></h1>
+        <a href="{% url 'review:create' %}"><span class="header-new">Add New Review</span></a>
     </header>
     {% block content %}
     {% endblock %}

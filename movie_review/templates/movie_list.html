@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="list-reviews"> 
+    {%for review in reviews %}
+    <div class="list-review">
+        <img src="https://picsum.photos/seed/picsum1/160/220">
+        <a href="{% url 'review:detail' review.id %}"><h2>{{ review.title }}</h2></a>
+        <p><span class="list-item">개봉년도</span>   <span class="list-content">{{ review.release_date }}년</span></p>
+        <p><span class="list-item">장르</span>   <span class="list-content">{{ review.genre }}</span></p>
+        <p><span class="list-item">별점</span>   <span class="list-content">{{ review.rating }}</span></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
