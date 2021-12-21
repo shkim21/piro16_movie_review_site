@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +11,8 @@
 </head>
 <body>
     <header>
-        <h1><a href="/">My Movie reviews</a></h1>
-        <a href="{% url '' %}"><span class="">Post a new review</span></a>
+        <h1><a href="/review">My Movie reviews</a></h1>
+        <a href="{% url 'review:create' %}"><span class="">Post a new review</span></a>
     </header>
     {% block content %}
     {% endblock %}
