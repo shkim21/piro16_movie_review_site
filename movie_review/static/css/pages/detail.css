@@ -13,9 +13,12 @@
 }
 
 .detail-ud {
-  margin-right: 10px;
+  margin-right: 5px;
   color: var(--d-gray);
+  font-size: smaller;
+  font-weight: bold;
 }
+
 .detail-info {
   display: flex;
   justify-content: left;

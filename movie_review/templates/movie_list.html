@@ -4,7 +4,9 @@
 <div class="list-reviews"> 
     {%for review in reviews %}
     <div class="list-review">
-        <img src="https://picsum.photos/seed/picsum1/160/220">
+        <div class=list-poster>
+            <img src="https://picsum.photos/seed/picsum/160/220">
+        </div>
         <a href="{% url 'review:detail' review.id %}"><h2>{{ review.title }}</h2></a>
         <p><span class="list-item">개봉년도</span>   <span class="list-content">{{ review.release_date }}년</span></p>
         <p><span class="list-item">장르</span>   <span class="list-content">{{ review.genre }}</span></p>
