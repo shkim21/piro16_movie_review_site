@@ -41,7 +41,8 @@ hr {
 .content-input,
 .form-input {
   border-radius: 5px;
-  border: solid 0.1px var(--m-gray);
+  border: solid 0.1px var(--lmm-gray);
+  padding: 3px 10px;
 }
 
 #release-date {
@@ -50,5 +51,18 @@ hr {
 
 #rating {
   width: 40px;
-  padding-left: 5px;
+}
+
+.save {
+  border-radius: 5px;
+  background-color: white;
+  border: solid 0.1px var(--lmm-gray);
+  width: 60px;
+  height: 28px;
+  position: relative;
+  right: -500px;
+}
+
+#running-time {
+  width: 30px;
 }
