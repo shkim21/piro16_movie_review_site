@@ -19,10 +19,10 @@
             <p><span class="detail-item">장르</span> <span class="detail-content">  {{ review.genre }}</span></p>
             <p><span class="detail-item">별점</span> <span class="detail-content">  {{ review.rating }}</span></p>
             <p><span class="detail-item">러닝타임</span> <span class="detail-content">  
-                {% if review.running_time > 60 %}
-                {{hour}}시간 {{minute}}분
+                {% if hour %}
+                    {{ hour }}시간 {{ minute }} 분
                 {% else %}
-                {{ review.running_time }} 분
+                    {{ review.running_time }} 분
                 {% endif %}
             </span></p>
         </div>

@@ -3,24 +3,28 @@ from .models import Review
 from .form import ReviewForm
 # Create your views here.
 
+
 def review_list(request):
     reviews = Review.objects.all()
     ctx = {'reviews': reviews}
 
     return render(request, template_name='movie_list.html', context=ctx)
 
+
 def detail(request, pk):
     review = Review.objects.get(id=pk)
     hour = 0
     minute = 0
-    if review.running_time > 60:
-        hour = review.running_time // 60
-        minute = review.running_time % 60
+    if int(review.running_time) > 60:
+        hour = int(review.running_time) // 60
+        minute = int(review.running_time) % 60
     print("hour:", hour)
     print("minute:", minute)
-    ctx = {'review': review, 'hour':hour, 'minute':minute}
+    print("review.running_time:", review.running_time)
+    ctx = {'review': review, 'hour': hour, 'minute': minute}
 
     return render(request, template_name='movie_detail.html', context=ctx)
+
 
 def create(request):
     if request.method == 'POST':
@@ -64,9 +68,10 @@ def review_update(request, pk):
 
     else:
         form = ReviewForm(instance=review)
-        ctx={'form': form, 'review': review}
+        ctx = {'form': form, 'review': review}
 
         return render(request, template_name='movie_form.html', context=ctx)
+
 
 def review_delete(request, pk):
     review = Review.objects.get(id=pk)
