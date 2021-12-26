@@ -11,7 +11,14 @@ def review_list(request):
 
 def detail(request, pk):
     review = Review.objects.get(id=pk)
-    ctx = {'review': review}
+    hour = 0
+    minute = 0
+    if review.running_time > 60:
+        hour = review.running_time // 60
+        minute = review.running_time % 60
+    print("hour:", hour)
+    print("minute:", minute)
+    ctx = {'review': review, 'hour':hour, 'minute':minute}
 
     return render(request, template_name='movie_detail.html', context=ctx)
 
@@ -23,6 +30,7 @@ def create(request):
             return redirect("review:list")
     else:
         form = ReviewForm()
+        print()
         ctx = {'form': form}
 
         return render(request, template_name='movie_form.html', context=ctx)
@@ -33,9 +41,9 @@ def review_update(request, pk):
 
     if request.method == 'POST':
         print("request method:", request.method)
-        # form = ReviewForm(request.POST, instance=review)
+        form = ReviewForm(request.POST, instance=review)
         # print("form:", form)
-        print("request.POST:", request.POST)
+        # print("request.POST:", request.POST)
         review.title = request.POST.get("title")
         review.release_date = request.POST.get("release_date")
         review.genre = request.POST.get("genre")

@@ -8,35 +8,35 @@
         <form method="POST" class="post-form">
             {% csrf_token %}
             <p>
-                <label>title: </label> 
+                <label>제목: </label> 
                 <input class="form-input" name="title" type="text" maxlength="30" value="{% if review.title %}{{review.title}}{% endif %}">
             </p>
             <p>
-                <label>release date: </label> 
+                <label>개봉년도: </label> 
                 <input id="release-date" class="form-input" name="release_date" type="number" value="{% if review.release_date %}{{review.release_date}}{% endif %}">
             </p>
             <p>
-                <label>genre: </label> 
-                <input class="form-input" type="text" name="genre" maxlength="50" value="{% if review.genre %}{{review.genre}}{% endif %}">
+                <label>장르: </label> 
+                <span>{{form.genre}}</span>
             </p>
             <p>
-                <label>rating: </label> 
-                <input id="rating" class="form-input" name="rating" type="number" step="0.01" value="{% if review.rating %}{{review.rating}}{% endif %}" step="0.5" >
+                <label>별점: </label> 
+                <input id="rating" class="form-input" name="rating" type="number" step="0.01" value="{% if review.rating %}{{review.rating}}{% endif %}" step="0.1" >
             </p>
             <p>
-                <label>running time: </label>
+                <label>러닝타임: </label>
                 <input id="running-time" class="form-input" type="text" maxlength="10" name="running_time" value="{% if review.running_time %}{{review.running_time}}{% endif %}">
             </p>
             <p>
-                <p id="review-content"><label>review content: </label></p>
+                <p id="review-content"><label>리뷰: </label></p>
                 <textarea class="content-input" cols="63" rows="10" name="content">{% if review.content %}{{review.content}}{% endif %}</textarea>
             </p>
             <p>
-                <label>director: </label> 
+                <label>감독: </label> 
                 <input class="form-input" name="director" type="text" maxlength="20" value="{% if review.director%}{{review.director}}{% endif %}">
             </p>
             <p>
-                <label>actor: </label> 
+                <label>배우: </label> 
                 <input class="form-input" name="actor" type="text" maxlength="255" value="{% if review.actor %}{{review.actor}}{% endif %}">
             </p>
             <button type="submit" class="save btn btn-default">Save</button>
