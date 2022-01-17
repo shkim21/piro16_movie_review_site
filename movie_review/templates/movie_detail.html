@@ -11,10 +11,15 @@
         </div>
     </div>
     <div class="detail-info">
+        {% if review.image %}
+        <img src="{{review.image.url}}" height="220" width="160">
+        {% else %}
         <img class="movie-poster" src="https://picsum.photos/seed/{{review.id}}/160/220">
+        {% endif %}
         <div class="detail-review1">
             <p><span class="detail-item">개봉년도</span> <span class="detail-content">  {{ review.release_date }}년</span></p>
             <p><span class="detail-item">감독</span> <span class="detail-content">  {{ review.director }}</span></p>
+            <p><span class="detail-item">감독2</span> <span class="detail-content">  {{ review.director2 }}</span></p>
             <p><span class="detail-item">주연</span> <span class="detail-content">  {{ review.actor }}</span></p>
             <p><span class="detail-item">장르</span> <span class="detail-content">  {{ review.genre }}</span></p>
             <p><span class="detail-item">별점</span> <span class="detail-content">  {{ review.rating }}</span></p>
@@ -25,6 +30,9 @@
                     {{ review.running_time }} 분
                 {% endif %}
             </span></p>
+            <div>review.image : {{review.image}}</div>
+            <div>review.image.url : {{review.image.url}}</div>
+            <div>review.image.path : {{review.image.path}}</div>
         </div>
     </div>
     <div class="detail-review2">

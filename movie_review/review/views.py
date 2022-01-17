@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Review
+from .models import Review, Director
 from .form import ReviewForm
 # Create your views here.
 
@@ -21,6 +21,16 @@ def detail(request, pk):
     print("hour:", hour)
     print("minute:", minute)
     print("review.running_time:", review.running_time)
+    print("review:", review)
+    print("review:", type(review))
+
+    print("review.director2:", review.director2)
+
+    director2= Director.objects.get(id=1)
+    print("director2:", director2)
+    print("director2.review_set.all():", director2.review_set.all().first())
+
+
     ctx = {'review': review, 'hour': hour, 'minute': minute}
 
     return render(request, template_name='movie_detail.html', context=ctx)
@@ -47,7 +57,9 @@ def review_update(request, pk):
         print("request method:", request.method)
         form = ReviewForm(request.POST, instance=review)
         # print("form:", form)
-        # print("request.POST:", request.POST)
+        print("request:", request)
+        print("request.POST:", request.POST)
+        print("request.FILES:", request.FILES)
         review.title = request.POST.get("title")
         review.release_date = request.POST.get("release_date")
         review.genre = request.POST.get("genre")
@@ -56,6 +68,8 @@ def review_update(request, pk):
         review.content = request.POST.get("content")
         review.director = request.POST.get("director")
         review.actor = request.POST.get("actor")
+        review.image = request.FILES.get('poster')
+        print("review.image :", review.image)
         review.save()
         return redirect('review:detail', pk)
 

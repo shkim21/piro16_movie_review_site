@@ -5,7 +5,7 @@
     <div class="form">
         <h2 class="form-title">  <span class="highlight">Movie</span> review 🍿</h2>
         <hr/>
-        <form method="POST" class="post-form">
+        <form method="POST" class="post-form" enctype="multipart/form-data">
             {% csrf_token %}
             <p>
                 <label>제목: </label> 
@@ -38,6 +38,10 @@
             <p>
                 <label>배우: </label> 
                 <input class="form-input" name="actor" type="text" maxlength="255" value="{% if review.actor %}{{review.actor}}{% endif %}">
+            </p>
+            <p>
+                <label>사진: </label> 
+                <input class="form-input" name="poster" type="file" maxlength="255" value="{% if review.image %}{{review.image.url}}{% endif %}">
             </p>
             <button type="submit" class="save btn btn-default">Save</button>
         </form>
