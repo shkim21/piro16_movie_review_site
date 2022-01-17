@@ -131,6 +131,7 @@ def review_update(request, pk):
         #     print("no valid")
 
     else:
+        print("request.GET:", request.GET)
         form = ReviewForm(instance=review)
         ctx = {'form': form, 'review': review}
 
