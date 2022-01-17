@@ -13,6 +13,7 @@ class Review(models.Model):
     content = models.TextField()#리뷰내용
     director = models.CharField(max_length=20)
     actor = models.CharField(max_length=255)
+    image = models.ImageField(upload_to="poster", null=True, blank=True)
 
     def __str__(self):
         return self.title
