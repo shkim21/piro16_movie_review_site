@@ -5,7 +5,11 @@
     {%for review in reviews %}
     <div class="list-review">
         <div class=list-poster>
-            <img src="https://picsum.photos/seed/{{review.id}}/160/220?">
+            {% if review.image %}
+                <img src="{{review.image.url}}" height="220" width="160">
+            {% else %}
+                <img src="https://picsum.photos/seed/{{review.id}}/160/220?">
+            {% endif %}
         </div>
         <a href="{% url 'review:detail' review.id %}"><h2>{{ review.title }}</h2></a>
         <p><span class="list-item">개봉년도</span>   <span class="list-content">{{ review.release_date }}년</span></p>

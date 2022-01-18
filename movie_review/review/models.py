@@ -29,6 +29,7 @@ class Review(models.Model):
     # actor = models.CharField(max_length=255)
     director = models.ForeignKey(Director, on_delete=models.CASCADE)
     actor = models.ManyToManyField(Actor, blank=True)
+    image = models.ImageField(upload_to="poster", null=True, blank=True)
 
     def __str__(self):
         return self.title
