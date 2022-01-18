@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Review
+from .models import Review, Director, Actor
 from .form import ReviewForm
 # Create your views here.
 
@@ -21,7 +21,13 @@ def detail(request, pk):
     print("hour:", hour)
     print("minute:", minute)
     print("review.running_time:", review.running_time)
-    ctx = {'review': review, 'hour': hour, 'minute': minute}
+
+    actor = Actor.objects.get(pk=1)
+    print("actors:", actor)
+    print("actors set all:", actor.review_set.all())
+    print("review.all", review.actor.all())
+    actors = review.actor.all()
+    ctx = {'review': review, 'hour': hour, 'minute': minute, "actors":actors}
 
     return render(request, template_name='movie_detail.html', context=ctx)
 
